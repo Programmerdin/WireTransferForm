@@ -1,0 +1,27 @@
+.language-div {
+  display: flex;
+  border-radius: 5px;
+  padding: 1px;
+}
+
+.language-button {
+  background-color: gray;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  color: white;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 4px;
+}
+
+.language-button:hover {
+  opacity: 0.5;
+}
+
+.language-button.selected {
+  background-color: blue;
+  color: white; /* Optional: to make the text more readable */
+}

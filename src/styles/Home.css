@@ -1,0 +1,78 @@
+@media print {
+  .languageDivContainer {
+    display: none;
+  }
+}
+
+.styled-image {
+  width: auto;
+  height: 50px;
+  margin: 0px;
+}
+
+.Home-div {
+  background-color: white;
+  margin-left: 25px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 2fr; /* Two columns */
+  align-items: center;
+  gap: 20px; /* Adjust this value to control the spacing */
+}
+
+.grid-container p {
+  justify-self: start;
+}
+
+.grid-container Text {
+  justify-self: end;
+  width: 100%; /* Ensure the Text component takes the full width of the column */
+}
+
+.span-style {
+  opacity: 1;
+}
+
+
+.p1 {
+  font-size: 18px;
+  margin: 0px;
+}
+
+.p-page-title {
+  font-size: 34px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.p-segment-title {
+  font-size: 26px;
+  margin: 0px;
+  font-weight: bold;
+}
+
+.spacer-div5 {
+  height: 5px;
+}
+
+.spacer-div10 {
+  height: 10px;
+}
+
+.spacer-div20 {
+  height: 20px;
+}
+
+.spacer-div30 {
+  height: 30px;
+}
+
+.spacer-div40 {
+  height: 40px;
+}
+
+.spacer-div50 {
+  height: 50px;
+}

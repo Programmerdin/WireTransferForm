@@ -1,0 +1,11 @@
+/* src/components/TextField/TextField.css */
+.custom-textfield {
+  border: 0px solid #ccc;
+  border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px;
+  font-size: 18px;
+  color: black;
+  font-family: 'Noto Sans', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans FR', 'Noto Sans ES', 'Noto Sans PT', 'Noto Sans RU', 'Noto Sans UK', 'Noto Sans AR', 'Noto Sans HI', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
