@@ -162,6 +162,10 @@ function Home() {
           onBlur={() => setIsTransitFocused(false)}
           placeholder="Enter transit number"
         />
+
+      </div>
+      <div className='grid-container'>
+        <div></div>
         {!isTransitValid && (
           <p className='p-error'>Transit not found</p>
         )}
@@ -180,11 +184,14 @@ function Home() {
           onChange={handleAccountChange}
           placeholder="Enter account number"
         />
+
+      </div>
+      <div className='grid-container'>
+        <div></div>
         {!isAccountValid && (
           <p className='p-error'>Account Number is not 7 digits</p>
         )}
       </div>
-      
 
       <div className='spacer-div40' />
       <p className='p-segment-title'>
