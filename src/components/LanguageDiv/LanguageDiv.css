@@ -15,6 +15,7 @@
   font-weight: bold;
   font-size: 16px;
   margin: 4px;
+  cursor: pointer;
 }
 
 .language-button:hover {

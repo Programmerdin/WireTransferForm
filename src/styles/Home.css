@@ -2,9 +2,22 @@
   .languageDivContainer {
     display: none;
   }
+  .instructions-div {
+    display: none;
+  }
+  .p-error{
+    display: none;
+  }
+  .p-support {
+    display: none;
+  }
+  .print-button {
+    display: none;
+    visibility: hidden;
+  }
 }
 
-.styled-image {
+.cibc-logo {
   width: auto;
   height: 50px;
   margin: 0px;
@@ -51,6 +64,65 @@
   font-size: 26px;
   margin: 0px;
   font-weight: bold;
+  margin: 0px;
+}
+
+.p-error {
+  font-size: 16px;
+  margin: 0px;
+  color: red;
+}
+
+.p-support {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.instructions-image {
+  width: 800px;
+  height: auto;
+  margin: 0px;
+}
+
+.instructions-button {
+  background-color: rgb(76, 150, 235);
+  border: 0px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  margin: 0px;
+  cursor: pointer;
+}
+.instructions-shown {
+  background-color: white;
+}
+
+.print-button {
+  display: flex;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  margin: 0px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.print-button:hover {
+  opacity: 0.5;
+}
+
+.print-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .spacer-div5 {
@@ -76,3 +148,4 @@
 .spacer-div50 {
   height: 50px;
 }
+
