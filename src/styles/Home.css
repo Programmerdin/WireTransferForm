@@ -15,6 +15,18 @@
     display: none;
     visibility: hidden;
   }
+  .hide {
+    display: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important; /* Ensure it overrides any other styles */
+  }
 }
 
 .cibc-logo {
@@ -70,6 +82,14 @@
 .p-error {
   font-size: 16px;
   margin: 0px;
+  color: red;
+}
+
+.p-error2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 20px;
   color: red;
 }
 

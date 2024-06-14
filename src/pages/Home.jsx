@@ -11,20 +11,24 @@ import LanguageDiv from '../components/LanguageDiv/LanguageDiv';
 import translations from '../data/translations';
 
 function Home() {
-  const [text, setText] = useState('');
+  const [beneficiaryName, setBeneficiaryName] = useState('');
+  const [beneficiaryAddress1, setBeneficiaryAddress1] = useState('');
+  const [beneficiaryAddress2, setBeneficiaryAddress2] = useState('');
+  
   const [transit_rawvalue, setTransit_rawvalue] = useState('')
   const [transit_formattedvalue, setTransit_formattedvalue] = useState('')
   const [account, setAccount] = useState('');
   const [isTransitFocused, setIsTransitFocused] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [showInstructions, setShowInstructions] = useState(false);
-  const [isTransitValid, setIsTransitValid] = useState(true);
-  const [isAccountValid, setIsAccountValid] = useState(true);
+  const [isTransitValid, setIsTransitValid] = useState(null); // Initialize as null
+  const [isAccountValid, setIsAccountValid] = useState(null); // Initialize as null
 
   const handleTransitChange = (e) => {
     const value = e.target.value;
     if (/^\d{0,5}$/.test(value)) {
       setTransit_rawvalue(value);
+      setIsTransitValid(value.length === 0 ? null : value.length === 5); // Update transit validity
     }
   };
 
@@ -32,7 +36,7 @@ function Home() {
     const value = e.target.value;
     if (/^\d{0,7}$/.test(value)) {
       setAccount(value);
-      setIsAccountValid(value.length === 7 || value.length === 0); // Update account validity
+      setIsAccountValid(value.length === 0 ? null : value.length === 7); // Update account validity
     }
   };
   
@@ -57,10 +61,9 @@ function Home() {
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
-
   const findBranchByTransitNumber = (transitNumber) => {
     if (transitNumber === '') {
-      setIsTransitValid(true); // No input yet, so no warning
+      setIsTransitValid(null); // No input yet, so no warning
       return { Address: '', State: '', City: '', Branch: '', PostalCode: '' };
     }
   
@@ -74,7 +77,6 @@ function Home() {
     }
   };
   
-
   useEffect(() => {
     const branchInfo = findBranchByTransitNumber(transit_formattedvalue);
     setAddress(branchInfo.Address);
@@ -86,6 +88,10 @@ function Home() {
 
   const getTranslation = (key) => {
     return selectedLanguage && translations[selectedLanguage] ? translations[selectedLanguage][key] : '';
+  };
+
+  const isFormValid = () => {
+    return isTransitValid && isAccountValid && beneficiaryName && beneficiaryAddress1 && beneficiaryAddress2;
   };
 
   return (
@@ -108,6 +114,7 @@ function Home() {
           {getTranslation('beneficiaryInformation')}
         </span>
       </p>
+
       <div className='spacer-div10' />
       <div className='grid-container'>
         <p className='p1'>
@@ -117,8 +124,9 @@ function Home() {
           </span>:
         </p>
         <Text
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={beneficiaryName}
+          onChange={(e) => setBeneficiaryName(e.target.value)}
+          className="custom-textfield"
           placeholder="Enter customer name"
         />  
       </div>
@@ -132,7 +140,19 @@ function Home() {
           </span>:
         </p>
         <Text
-          placeholder="Enter customer address"
+          value={beneficiaryAddress1}
+          onChange={(e) => setBeneficiaryAddress1(e.target.value)}
+          placeholder="Enter customer Street address"
+          className="custom-textfield"
+        />
+      </div>
+      <div className='grid-container'>
+        <div></div>
+        <Text 
+          value={beneficiaryAddress2}
+          onChange={(e) => setBeneficiaryAddress2(e.target.value)}
+          placeholder="Enter customer City, Province/State, Postal Code" 
+          className="custom-textfield"
         />
       </div>
       <div className='spacer-div20' />
@@ -146,9 +166,18 @@ function Home() {
         </p>
         <p className='p1'>0010</p>
       </div>
-      <div className='spacer-div10' />
+      <div className='spacer-div10 hide' />
+      <div className='grid-container print-only'>
+        <p className='p1'>
+          Account Number
+          <span className='span-style'>
+            {getTranslation('accountNumber')}
+          </span>:
+        </p>
+        <p>{transit_formattedvalue+account}</p>
+      </div>
     
-      <div className='grid-container'>
+      <div className='grid-container hide'>
         <p className='p1'>
           Transit/Branch
           <span className='span-style'>
@@ -161,18 +190,19 @@ function Home() {
           onFocus={() => setIsTransitFocused(true)}
           onBlur={() => setIsTransitFocused(false)}
           placeholder="Enter transit number"
+          className="custom-numberfield"
         />
-
       </div>
+
       <div className='grid-container'>
         <div></div>
-        {!isTransitValid && (
+        {isTransitValid === false && (
           <p className='p-error'>Transit not found</p>
         )}
       </div>
-      <div className='spacer-div10' />
+      <div className='spacer-div10 hide' />
 
-      <div className='grid-container'>
+      <div className='grid-container hide'>
         <p className='p1'>
           Account Number
           <span className='span-style'>
@@ -183,15 +213,16 @@ function Home() {
           value={account}
           onChange={handleAccountChange}
           placeholder="Enter account number"
+          className="custom-numberfield"
         />
-
       </div>
-      <div className='grid-container'>
+      <div className='grid-container hide'>
         <div></div>
-        {!isAccountValid && (
+        {isAccountValid === false && (
           <p className='p-error'>Account Number is not 7 digits</p>
         )}
       </div>
+
 
       <div className='spacer-div40' />
       <p className='p-segment-title'>
@@ -264,10 +295,17 @@ function Home() {
       </div>
       <div className='spacer-div40' />
 
-      <button className='print-button' onClick={() => window.print()}>
-        <img src={printIcon} alt="Print Icon" className="print-icon" />
-        <p>Print</p>
-      </button>
+      {!isFormValid() && (
+        <p className='p-error2'>Form is incomplete, please fill out all fields</p>
+      )}
+
+      {isFormValid() && (
+        <button className='print-button' onClick={() => window.print()}>
+          <img src={printIcon} alt="Print Icon" className="print-icon" />
+          <p>Print</p>
+        </button>
+      )}
+      
       <div className='instructions-div'>
         <button className='instructions-button' onClick={() => setShowInstructions(prev => !prev)}>
           {showInstructions ? 'Hide Advanced Instructions' : 'Show Advanced Instructions'}

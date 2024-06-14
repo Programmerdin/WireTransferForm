@@ -1,7 +1,7 @@
 import React from 'react';
 import './Text.css';
 
-function Text({ value, onChange, onFocus, onBlur, placeholder }) {
+function Text({ value, onChange, onFocus, onBlur, placeholder, className }) {
   return (
     <input
       type="text"
@@ -10,7 +10,7 @@ function Text({ value, onChange, onFocus, onBlur, placeholder }) {
       onFocus={onFocus}
       onBlur={onBlur}
       placeholder={placeholder}
-      className='custom-textfield'
+      className={className}
     />
   );
 }
