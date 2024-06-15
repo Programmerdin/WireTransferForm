@@ -14,7 +14,7 @@ const translations = {
     ccCode: "",
   },
   Japanese: {
-    wireTransferInstructions: " (電信送金指示)",
+    wireTransferInstructions: " (海外送金指示情報)",
     beneficiaryInformation: " (受取人情報)",
     name: " (名前)",
     address: " (住所)",
