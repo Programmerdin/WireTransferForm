@@ -28,7 +28,7 @@ const translations = {
     ccCode: "",
   },
   Korean: {
-    wireTransferInstructions: " (전신 송금 지시)",
+    wireTransferInstructions: " (홰외 송금)",
     beneficiaryInformation: " (수취인 정보)",
     name: " (이름)",
     address: " (주소)",
