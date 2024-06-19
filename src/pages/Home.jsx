@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Text from '../components/Text/Text';
 import branchData from '../data/branchData.json';
-import cibclogo from '../assets/cibclogo.png';
 import instructions from '../assets/instructions.png';
 import printIcon from '../assets/print-icon.png';
 import '../styles/Home.css';
@@ -96,7 +95,6 @@ function Home() {
 
   return (
     <div className='Home-div'>
-      <img src={cibclogo} alt="" className="cibc-logo print-only" />
       <div className={'languageDivContainer'}>
         <LanguageDiv value={setSelectedLanguage} />
       </div>
@@ -318,6 +316,7 @@ function Home() {
       </div>
 
       <p className='p-support'>If you find any bugs, errors, or have any suggestions, feel free to contact me at <a href="mailto:hong525011@gmail.com">hong525011@gmail.com</a></p>
+      <p className='p-support'>-Odin Hong</p>
     </div>
   );
 }
