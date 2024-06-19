@@ -8,6 +8,7 @@ import '../styles/Home.css';
 import { getStateFullName } from '../utils/stateUtils'; // Import the utility function
 import LanguageDiv from '../components/LanguageDiv/LanguageDiv';
 import translations from '../data/translations';
+import posthog from 'posthog-js'; // Import posthog
 
 function Home() {
   const [beneficiaryName, setBeneficiaryName] = useState('');
@@ -91,6 +92,11 @@ function Home() {
 
   const isFormValid = () => {
     return isTransitValid && isAccountValid && beneficiaryName && beneficiaryAddress1 && beneficiaryAddress2;
+  };
+
+  const handlePrintButtonClick = () => {
+    posthog.capture('button_clicked', { property: 'value' });
+    window.print();
   };
 
   return (
@@ -298,7 +304,7 @@ function Home() {
       )}
 
       {isFormValid() && (
-        <button className='print-button' onClick={() => window.print()}>
+        <button className='print-button' onClick={handlePrintButtonClick}>
           <img src={printIcon} alt="Print Icon" className="print-icon" />
           <p>Print</p>
         </button>
