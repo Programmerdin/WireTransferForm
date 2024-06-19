@@ -96,7 +96,7 @@ function Home() {
 
   return (
     <div className='Home-div'>
-      <img src={cibclogo} alt="Description of image" className="cibc-logo" />
+      <img src={cibclogo} alt="" className="cibc-logo print-only" />
       <div className={'languageDivContainer'}>
         <LanguageDiv value={setSelectedLanguage} />
       </div>
@@ -317,7 +317,7 @@ function Home() {
         )}
       </div>
 
-      <p className='p-support'>If you find any bugs, errors, or have any suggestions, feel free to contact me at <a href="mailto:odin.hong@cibc.com">odin.hong@cibc.com</a></p>
+      <p className='p-support'>If you find any bugs, errors, or have any suggestions, feel free to contact me at <a href="mailto:hong525011@gmail.com">hong525011@gmail.com</a></p>
     </div>
   );
 }
