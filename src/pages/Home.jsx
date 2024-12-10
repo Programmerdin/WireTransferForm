@@ -317,7 +317,7 @@ function Home() {
         )}
       </div>
 
-      <p className='p-support'>If you find any bugs, errors, or have any suggestions, feel free to contact me at <a href="mailto:hong525011@gmail.com">hong525011@gmail.com</a></p>
+      <p className='p-support'>If you find any errors, or have any suggestions, feel free to contact me at <a href="mailto:hong525011@gmail.com">hong525011@gmail.com</a></p>
     </div>
   );
 }
