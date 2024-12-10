@@ -28,11 +28,11 @@ const translations = {
     ccCode: "",
   },
   Korean: {
-    wireTransferInstructions: " (홰외 송금)",
+    wireTransferInstructions: " (해외 송금)",
     beneficiaryInformation: " (수취인 정보)",
     name: " (이름)",
     address: " (주소)",
-    institutionBank: " (기관 번호)",
+    institutionBank: " (은행 번호)",
     transitBranch: " (지점 번호)",
     accountNumber: " (계좌 번호)",
     bankInformation: " (은행 정보)",
