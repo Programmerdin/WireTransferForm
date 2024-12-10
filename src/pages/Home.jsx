@@ -174,7 +174,7 @@ function Home() {
             {getTranslation('accountNumber')}
           </span>:
         </p>
-        <p>{transit_formattedvalue+account}</p>
+        <p>{transit_formattedvalue + " " + account}</p>
       </div>
     
       <div className='grid-container hide'>

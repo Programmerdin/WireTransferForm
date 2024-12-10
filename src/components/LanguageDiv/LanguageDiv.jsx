@@ -5,7 +5,8 @@ function LanguageDiv({ value }) {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const languages = [
     "Chinese", "Japanese", "Korean", "French", "Spanish", 
-    "Portuguese", "Russian", "Ukrainian", "Arabic", "Hindi", "Farsi"
+    "Portuguese", "Russian", "Ukrainian", "Arabic", "Hindi", "Farsi",
+    "Vietnamese", "Filipino", "Italian"
   ];
 
   const handleLanguageClick = (language) => {
